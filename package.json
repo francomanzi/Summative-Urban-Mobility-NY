@@ -1,0 +1,17 @@
+{
+    "name": "summative-urban-mobility-ny",
+    "version": "1.0.0",
+    "description": "NYC yellow taxi dashboard: clean data, SQLite database, Express API, simple frontend",
+    "type": "module",
+    "scripts": {
+        "clean": "node backend/dataIntegration.js",
+        "start": "node backend/server.js"
+    },
+    "dependencies": {
+        "better-sqlite3": "^11.0.0",
+        "csv-parse": "^5.5.0",
+        "express": "^4.19.0",
+        "hyparquet": "^1.31.2",
+        "hyparquet-compressors": "^1.1.2"
+    }
+}
