@@ -1,4 +1,5 @@
 // Express API for the dashboard.
+import express from 'express';
 import Database from 'better-sqlite3';
 import { rankZones } from './rankZones.js';
 

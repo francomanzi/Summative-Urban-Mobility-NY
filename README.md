@@ -17,7 +17,7 @@ We used AI as a development assistant, itt helped us running tests, debugging an
 
 This project analyzes New York City yellow taxi trip data to uncover urban mobility patterns across the cities and zones. It cleans and filters raw trip records, stores the processed data in a database, and serves it through an API to an interactive dashboard. The dashboard lets users explore key metrics such as trip counts, average fares, speeds, and top pickup zones with filters by borough, date, and distance. It was built using Node.js, Express, SQLite, and JavaScript.
 
-## System Archittecture
+## Structure
 
 ```
 data/        raw files go here + excluded_log.csv is created here
@@ -89,9 +89,13 @@ Diagram (1 to many = `─<`):
 
 `backend/rankZones.js` it sorts the busiest pickup zones with a merge sort algorithm. Pseudo code and complexity (0(n log n) time,0(n)space).
 
+## Testing 
+
+`npm test` runs the unit tests for the merge sort(`tests/rankZones.test.js`)
+
 ## API
 
-| Route | What it returns |
+## API ENDPOINTS
 |---|---|
 | `/api/boroughs` | list of cities |
 | `/api/summary` | totals, averages and fare per mile for short vs long trips |
@@ -101,3 +105,32 @@ Diagram (1 to many = `─<`):
 
 All routes accept the filters `borough`, `from`/`to` (pickup day, `YYYY-MM-DD`),
 `minDistance`, `maxDistance`, `minFare`, `maxFare`.
+
+## Example requests
+
+List the cities
+```
+curl "http://localhost:3000/api/boroughs"
+```
+Summary
+```
+curl "http://localhost:3000/api/summary?"
+```
+Trips per hour
+```
+curl "http://localhost:3000/api/trips"
+```
+Top pick up zones
+```
+curl "http://localhost:3000/api/top-zones"
+```
+Trips from queens
+```
+curl "http://localhost:3000/api/trips?borough=Queens&from=202
+```
+## Logbook Link
+
+https://docs.google.com/spreadsheets/d/1nTxZ__anTxzdGhNdpKbVeKvLWhCQ-bHfZdNSc_P9jvY/edit?gid=0#gid=0
+
+## Video link
+

@@ -19,8 +19,8 @@ function buildZones(lookupFile, zonesFile) {
   const lookupRows = parse(fs.readFileSync('data/' + lookupFile, 'utf8'), { columns: true, skip_empty_lines: true });
   const boroughs = [];
   const boroughIds = {};
-  const zones = [];                    // [zone_id, zone_name, service_zone, borough_id, center_lon, center_lat]
-  const validZones = new Set();        // zone ids that have a real borough
+  const zones = [];                    
+  const validZones = new Set();        
 
   for (const row of lookupRows) {
     const boroughName = row.Borough || 'Unknown';

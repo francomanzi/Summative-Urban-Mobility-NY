@@ -28,7 +28,9 @@ function loadDatabase(cleaned){
     const saveAll = db.transaction(rows => { for (const row of rows) insertTrip.run(row); });
      saveAll(cleaned.trips);
 
-     //Dropping the table on each run
+
+     
+     
      db.exec('VACUUM');
      
      db.exec('ANALYZE');

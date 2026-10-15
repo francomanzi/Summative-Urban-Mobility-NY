@@ -19,6 +19,8 @@ CREATE TABLE zones (
     center_lat REAL
 );
 
+
+
 CREATE TABLE payment_types (
     payment_type_id INTEGER PRIMARY KEY,
     payment_name    TEXT NOT NULL
@@ -48,6 +50,9 @@ CREATE TABLE trips (
     fare_per_mile REAL NOT NULL,
     tip_percent REAL --only for card payments
 );
+
+
+
 
 --Index for the dashboard queries
 CREATE INDEX idx_trips_pickup_time ON trips(pickup_time); 
