@@ -3,9 +3,13 @@
     "version": "1.0.0",
     "description": "NYC yellow taxi dashboard: clean data, SQLite database, Express API, simple frontend",
     "type": "module",
+    "engines": {
+        "node": "20.x"
+    },
     "scripts": {
         "clean": "node backend/dataIntegration.js",
-        "start": "node backend/server.js"
+        "start": "node backend/server.js",
+        "test": "node --test"
     },
     "dependencies": {
         "better-sqlite3": "^11.0.0",

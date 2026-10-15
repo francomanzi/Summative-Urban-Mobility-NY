@@ -1,5 +1,4 @@
-// Express API which serves the cleaned data to the frontend. The frontend can then use this API to fetch the data and display it to the user.
-import express from 'express';
+// Express API for the dashboard.
 import Database from 'better-sqlite3';
 import { rankZones } from './rankZones.js';
 
