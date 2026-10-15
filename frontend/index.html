@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NYC Taxi Mobility Dashboard</title>
+<link rel="icon" href="data:,"> <!-- preveents a 404 for the missing favicon -->
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div>
+            <h1>NYC Taxi Mobility Dashboard</h1>
+            <p class="subtitle">When and where do New Yorkers take yellow taxi, and how does traffic change the day?</p>
+                </div>
+                <div class="header-stats" id="headerStats"></div>
+    </header>
+    <div class="layout">
+        <!-- Sidebar: filters and quick insights -->
+        <aside class="sidebar">
+            <div class="panel">
+                <h3>Filters</h3>
+                <label for "borough">Cities</label>
+                <select id="borough"><option value="">All cities</option></select>
+                    <label for="from">Pickup from</label>
+                        <input id="from" type="date" title="Pickup from this day">
+                        <label for="to">Pickup until</label>
+                        <input id="to" type="date" title="Pickup until this day">
+                       <label>Distance (miles)</label>
+                       <div class="two">
+                        <input id="minDistance" type="number" placeholder="Min" aria-label="Minimum distance in miles">
+                        <input id="maxDistance" type="number" placeholder="Max" aria-label="Maximum distance in miles">
+                       </div>
+
+                       <label>Fare ($)</label>
+                       <div class="two">
+                        <input id="minFare" type="number" placeholder="Min" aria-label="Minimum fare in dollars">
+                        <input id="maxFare" type="number" placeholder="Max" aria-label="Maximum fare in dollars">
+                       </div>
+                        <button id="applyButton">Apply filters</button>
+                    </div>
+                    <div class="panel">
+                        <h3>Insights</h3>
+                        <div id="insights" class="insights"></div>
+                    </div>
+                </aside>
+                <!--Main content with view tabs-->
+                <main class="content">
+                    <div class="tabs">
+                        <button class="tab active" data-view="overview">Overview</button>
+                        <button class="tab" data-view="temporal">Temporal patterns</button>
+                        <button class="tab" data-view="zones">Pickup zones</button>
+                        <button class="tab" data-view="trips">Trip explorer</button>
+                    </div>
+                    <div id="errorBox" class="error" hidden></div>
+                    <section id="overview" class="view active">
+                        <div id="summary" class="cards"></div>
+                        </section>
+                        <section id="temporal" class="view">
+                          <div class="charts">
+                          <div class="box"><h3>Trips per hour</h3><div class="canvas-box"><canvas id="hourChart"></canvas></div></div>
+                          <div class="box"><h3>Average speed per hour (mph)</h3><div class="canvas-box"><canvas id="speedChart"></canvas></div></div>
+                        </div>
+                    </section>
+                             <section id="zones" class="view">
+                                <div class="charts">
+                                 <div class="box"><h3>Top 10 pickup zones</h3><div class="canvas-box"><canvas id="zoneChart"></canvas></div>
+                                 </div>
+                                </section>
+                                <section id="trips" class="view">
+                                    <div class="box">
+                                        <div class="toolbar">
+                                            <select id="sortBy">
+                                              <option value="pickup_time">Sort by time</option>
+                                              <option value="trip_distance">Sort by distance</option>
+                                              <option value="fare_amount">Sort by fare</option>
+                                              <option value="trip_minutes">Sort by duration</option>
+                                              <option value="tip_percent">Sort by tip %</option>
+                                            </select>
+                                            <select id="order">
+                                                <option value="desc">High to low</option>
+                                                <option value="asc">Low to high</option>
+                                            </select>
+                                        </div>
+                                   <div class="table-wrap">
+                                    <table>
+                                        <thead><tr><th><Pickup time</th><th>From</th><th>To</th><th>Miles</th><th>Minutes</th><th>Fare</th><th>Tip%</th></tr></thead>
+                                            <tbody id="tripRows"></tbody>
+                                         </table>
+                                   </div>
+                                   <div class="pagination">
+                                    <button id="previousButton">Previous</button>
+                                    <span>Page <span id="pageNumber">1</span></span>
+                                    <button id="nextButton">Next</button>
+                                 </div>
+                                 </div>
+                                 </section>
+                                 </main>
+                                 </div>
+
+        <script src="dashboard.js"></script>
+</body>
+</html>
