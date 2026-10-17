@@ -1,6 +1,6 @@
 # New York City Taxi analytics
 
-Full stack app for thhe. Urban Mobolity Analytics Web App that cleans thhe NYC yellow ttaxi data, stores it in SQLiite, serves itt with a Node.js API and shows it in a dashboard.
+Full stack app for thhe. Urban Mobolity Analytics Web App that cleans thhe NYC yellow taxi data for the January month 2023 and stores it in SQLiite, serves itt with a Node.js API and shows it in a dashboard.
 
 ## Team name
 Metrix
@@ -134,3 +134,4 @@ https://docs.google.com/spreadsheets/d/1nTxZ__anTxzdGhNdpKbVeKvLWhCQ-bHfZdNSc_P9
 
 ## Video link
 
+https://youtu.be/neyIRt0qByM
